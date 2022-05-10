@@ -31,7 +31,7 @@ let user4 = {
 
 // For multiword properties, the dot access doesn't work:
 // this would give a synatx error
-user4.likes birds = true
+// user4.likes birds = true
 
 // instead use square bracket notation
 
@@ -110,3 +110,66 @@ for (let key in user) {
     alert(user7[key]);   // John, 30, true 
 }
 
+// .........................................
+// Examples/Tasks
+// Task1
+let NewUser = {
+    name: "John",
+    surname: "Smith",
+};
+
+NewUser.name = "Pete"
+delete (NewUser.name);
+
+// Task2..........
+
+function isEmpty(obj) {
+    if (Object.keys(obj).length === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+const person = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+
+alert(isEmpty(person));
+
+// Task3..........
+let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+}
+let cost = {};
+function SumOfSalaries(salaries) {
+    let sum = 0;
+    for (let key in salaries) {
+        sum += salaries[key]
+    }
+    return sum;
+}
+alert(SumOfSalaries(salaries));  // 390
+alert(SumOfSalaries(cost));      // 0
+
+// Task4..............
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+function multiplyNumeric(obj) {
+    for (let key in obj) {
+        if (typeof (obj[key] == 'number')) {
+            obj[key] *= 2;
+        }
+    }
+}
+
+multiplyNumeric(menu);
+alert(menu.width);    // 400
+alert(menu.height);  // 600
+alert(menu.title);  // NaN, Why not: "My menu"
