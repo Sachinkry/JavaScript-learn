@@ -173,3 +173,4 @@ multiplyNumeric(menu);
 alert(menu.width);    // 400
 alert(menu.height);  // 600
 alert(menu.title);  // NaN, Why not: "My menu"
+// search for this
