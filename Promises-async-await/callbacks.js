@@ -68,8 +68,8 @@ function createPost(post, callback) {
 createPost({
     title: 'Post Three',
     body: 'This is post three'
-});
+}, getPosts);
 
 // #########################################
 
-console.log('hello');
+// console.log('hello');
