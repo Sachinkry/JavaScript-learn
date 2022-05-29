@@ -1,6 +1,7 @@
 const textBtnEl = document.getElementById('getText');
 const usersBtnEl = document.getElementById('getUsers');
 const postBtnEl = document.getElementById('getPosts');
+const addPostBtnEl = document.getElementById('addPosts');
 
 
 textBtnEl.addEventListener('click', () => {
@@ -64,3 +65,24 @@ function getPosts() {
             document.getElementById('output').innerHTML = output;
         })
 }
+
+
+
+addPostBtnEl.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    let title = document.getElementById('title').value;
+    let body = document.getElementById('body').value;
+
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json,text/plain, */*',
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({ title: title, body: body })
+    })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+
+});
